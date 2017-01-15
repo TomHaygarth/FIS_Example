@@ -41,6 +41,14 @@ void FuzzyVariable::SetRange(int minRange, int maxRange)
 
 void FuzzyVariable::CalculateOutput(float input)
 {
+	if (input < mMinRange)
+	{
+		input = mMinRange;
+	}
+	else if (input > mMaxRange)
+	{
+		input = mMaxRange;
+	}
 	// loop through all the sets and calculate their DOM
 	for(int i = 0; i < mSets.size(); i++)
 	{
